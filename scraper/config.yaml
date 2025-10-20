@@ -1,0 +1,39 @@
+# Configuration for the ESB Sales Report Scraper
+
+# 1. URLs
+urls:
+  login: "https://erp.esb.co.id/site/login"
+  report: "https://erp.esb.co.id/report/report-sales"
+
+# 2. Credentials
+# It's recommended to use environment variables instead of hardcoding.
+# The script will look for ESB_USER and ESB_PASS.
+credentials:
+  username: "KFBIPOSADMIN"
+  password: "Thekhub123!@#"
+
+# 3. Scraping Parameters
+scraping_parameters:
+  # Date range for the historical data pull
+  start_date: "2024-01-01"
+  end_date: "2024-01-31"
+
+# 4. Output Settings
+output:
+  # Directory to save the downloaded Excel files
+  directory: "output/reports"
+  # The script currently downloads Excel files as provided by the server.
+  # Merging into a single CSV/Excel can be a post-processing step.
+  format: excel 
+
+# 5. Network and Politeness
+user_agent: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36"
+# Seconds to wait between download requests for each month
+rate_limit_seconds: 5.0
+
+# 6. Polling settings for asynchronous download
+polling_settings:
+  # Check the queue every N seconds
+  interval_seconds: 15
+  # Give up checking for a single report after N seconds
+  timeout_seconds: 600
